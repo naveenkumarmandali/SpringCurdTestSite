@@ -18,7 +18,7 @@ import java.util.Optional;
 public class EmployeeController {
 
     @Value("${my.profile}")
-    private  String profile;
+    private String profile;
     @Autowired
     private EmployeeService empserv;
 
@@ -29,7 +29,7 @@ public class EmployeeController {
 
     @GetMapping("/findAll_employees")
     public ResponseEntity<List<Employee>> getAllEmployees() {
-       System.out.println("Active Profile :"+profile);
+        System.out.println("Active Profile :" + profile);
         return new ResponseEntity(empserv.getAllEmployeesData(), HttpStatus.OK);
     }
 
@@ -38,14 +38,15 @@ public class EmployeeController {
         Optional<Employee> emp = empserv.getEmployee(emp_id);
         return new ResponseEntity<>(emp.get(), HttpStatus.OK);
     }
-   @PutMapping("/update_employee")
-    public ResponseEntity<Optional<Employee>> updateEmployee(@RequestBody Employee emp){
-        return  new ResponseEntity<Optional<Employee>>(empserv.updateEmployee(emp),HttpStatus.OK);
+
+    @PutMapping("/update_employee")
+    public ResponseEntity<Optional<Employee>> updateEmployee(@RequestBody Employee emp) {
+        return new ResponseEntity<Optional<Employee>>(empserv.updateEmployee(emp), HttpStatus.OK);
     }
 
     @PostMapping("/save_employee")
-    public ResponseEntity<Employee> saveData(@RequestBody Employee emp){
-        return new ResponseEntity<>(empserv.saveEmployeeData(emp),HttpStatus.OK);
+    public ResponseEntity<Employee> saveData(@RequestBody Employee emp) {
+        return new ResponseEntity<>(empserv.saveEmployeeData(emp), HttpStatus.OK);
     }
 
 

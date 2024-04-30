@@ -1,4 +1,5 @@
 package com.example.dao;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,12 +10,11 @@ import org.hibernate.annotations.CollectionId;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+
 @Entity
 public class Employee {
-
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    //@Column(name="empid")
     private long id;
 
     @Column(name="name")
@@ -30,4 +30,3 @@ public class Employee {
     private float salary;
 
 }
-

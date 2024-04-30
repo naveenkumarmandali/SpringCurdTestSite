@@ -4,13 +4,17 @@ import com.example.dao.Employee;
 import com.example.repository.EmployeeRepository;
 import com.example.services.EmployeeService;
 import lombok.RequiredArgsConstructor;
+
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+
 import java.util.Optional;
+
 
 @SpringBootTest
 @RequiredArgsConstructor
@@ -18,17 +22,16 @@ class SpringCurdApplicationTests {
 
 	@Autowired
 	private EmployeeService empserv;
+
 	@Autowired
 	private EmployeeRepository emprepo;
 
-	/*@Test
-	void contextLoads() {
-	}
-*/
+
 	@Test
 	public void getAll(){
 		List<Employee> employees = empserv.getAllEmployeesData();
 		System.out.println(employees);
+
 		Assertions.assertThat(employees.size()).isGreaterThan(0);
 	}
 	@Test
@@ -67,6 +70,7 @@ class SpringCurdApplicationTests {
 		.build();
 		empserv.saveEmployeeData(emp);
 		Assertions.assertThat(emp.getId()).isGreaterThan(0);
+
 	}
 
 }
