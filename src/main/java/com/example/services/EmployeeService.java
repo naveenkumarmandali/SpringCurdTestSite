@@ -30,7 +30,7 @@ public class EmployeeService {
         Optional<Employee> data = empRepo.findById(emp.getId());
         Employee e = data.get();
         e.setName(emp.getName());
-        e.setGen(emp.getGen());
+        e.setGender(emp.getGender());
         e.setDesignation(emp.getDesignation());
         e.setSalary(emp.getSalary());
         empRepo.save(e);

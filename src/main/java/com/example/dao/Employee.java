@@ -21,9 +21,9 @@ public class Employee {
     private String name;
 
     @Column(name="gender")
-    private String gen;
+    private String gender;
 
-    @Column(name="desig")
+    @Column(name="designation")
     private  String designation;
 
     @Column(name="salary")
