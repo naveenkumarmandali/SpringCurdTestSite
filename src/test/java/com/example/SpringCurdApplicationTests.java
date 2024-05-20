@@ -7,7 +7,10 @@ import lombok.RequiredArgsConstructor;
 
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.ClassOrderer.OrderAnnotation;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -18,6 +21,7 @@ import java.util.Optional;
 
 @SpringBootTest
 @RequiredArgsConstructor
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class SpringCurdApplicationTests {
 
 	@Autowired
@@ -64,7 +68,7 @@ class SpringCurdApplicationTests {
 	public void saveEmployee(){
 		Employee emp = Employee.builder()
 				.name("Surendar")
-				.gen("Male")
+				.gender("Male")
 				.designation("Software")
 				.salary(100000)
 		.build();
